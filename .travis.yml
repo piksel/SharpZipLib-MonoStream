@@ -15,4 +15,6 @@ install:
   - nuget restore MonoStream.sln
 script:
  - xbuild /p:DefineConstants=CI_BUILD /p:Configuration=Release MonoStream-Mono.csproj
- - mono bin/Debug/Mono/MonoStream.exe
+# - xbuild /p:DefineConstants=CI_BUILD /p:Configuration=Debug MonoStream-Mono.csproj
+ - mono bin/Release/Mono/MonoStream.exe
+# - mono bin/Debug/Mono/MonoStream.exe
