@@ -1,0 +1,46 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFrameworks>netcoreapp2.0;netcoreapp2.1</TargetFrameworks>
+    <ApplicationIcon />
+    <StartupObject />
+    <AssemblyName>MonoStream</AssemblyName>
+    <RootNamespace>MonoStream</RootNamespace>
+    <BaseIntermediateOutputPath>obj\$(MSBuildProjectName)\</BaseIntermediateOutputPath>
+    <IntermediateOutputPath>$(BaseIntermediateOutputPath)$(Configuration)\</IntermediateOutputPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="obj\**" />
+    <EmbeddedResource Remove="obj\**" />
+    <None Remove="obj\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="LICENSE" />
+    <None Remove="packages.config" />
+    <None Remove="README.md" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="SharpZipLib">
+      <Version>1.0.0-alpha2</Version>
+    </PackageReference>
+  </ItemGroup>
+  
+  <ItemGroup>
+    <None Update="MonoStream.exe.manifest">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>
