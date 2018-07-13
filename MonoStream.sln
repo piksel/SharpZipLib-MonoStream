@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.27703.2042
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MonoStream-Core", "MonoStream-Core.csproj", "{8E238768-8951-4CE7-91FD-F9EA034B5BB8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonoStream-Mono", "C:\Users\nils\Documents\Visual Studio 2017\Projects\SharpZipLib\MonoStream\MonoStream-Mono.csproj", "{F7F7FCB9-7328-43AC-B3E8-760F341A9EEC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonoStream-Mono", "MonoStream-Mono.csproj", "{F7F7FCB9-7328-43AC-B3E8-760F341A9EEC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
