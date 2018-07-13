@@ -3,9 +3,11 @@ using System.IO;
 using System.Text;
 using System.Reflection;
 using System.Runtime.Versioning;
+#if NETCORE2
+using System.Runtime.InteropServices;
 using RI = System.Runtime.InteropServices.RuntimeInformation;
 using RE = System.Runtime.InteropServices.RuntimeEnvironment;
-using System.Runtime.InteropServices;
+#endif
 
 namespace MonoBugTest
 {
@@ -23,11 +25,17 @@ namespace MonoBugTest
 				.GetCustomAttribute<TargetFrameworkAttribute>()?
 				.FrameworkName;
 
-            var procArch = Environment.Is64BitProcess ? Architecture.X64 : Architecture.X86;
+            var procArch = Environment.Is64BitProcess ? "X64" : "X86";
+            var osArch = Environment.Is64BitOperatingSystem ? "X64" : "X86";
 
+#if NETCORE2
             Console.Title = $"MonoStream {RI.FrameworkDescription}";
             Console.WriteLine($"Framework: {framework} ({RI.FrameworkDescription}) CLR: {RE.GetSystemVersion()}");
 			Console.WriteLine($"OS: {Environment.OSVersion} ({RI.OSDescription.Trim()}) {procArch} {RI.OSArchitecture} {RI.ProcessArchitecture}");
+#else
+            Console.WriteLine($"Framework: {framework} CLR: {Environment.Version}");
+            Console.WriteLine($"OS: {Environment.OSVersion} {procArch} {osArch}");
+#endif
             Console.WriteLine();
 
             helloWorldZippedBytes = Convert.FromBase64String(helloWorldZippedBase64);
